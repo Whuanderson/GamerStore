@@ -1,36 +1,112 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# GamerStore 🎮🛒
 
-## Getting Started
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Whuanderson/GamerStore/refs/heads/main/public/logo.png" alt="GamerStore logo" height="120"/>
+</p>
 
-First, run the development server:
+<p align="center">
+  <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/Whuanderson/GamerStore">
+  <a href="https://www.linkedin.com/in/whuanderson-de-sousa-porto-marinho-a07204216/" target="_blank">
+    <img alt="Made by Whuanderson" src="https://img.shields.io/badge/Made%20by-Whuanderson-blue">
+  </a>
+  <img alt="License" src="https://img.shields.io/badge/License-MIT-blue">
+</p>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Monorepo **full‑stack** para um e‑commerce de jogos digitais.  
+Backend, frontend web e app mobile vivem no mesmo repositório graças ao **Turborepo**, compartilhando pacotes de UI, configuração e lógica.
+
+---
+
+## 📸 Visão Geral
+
+  <img src="https://raw.githubusercontent.com/Whuanderson/GamerStore/refs/heads/main/.github/a1.png" width="410" alt="Home" />  
+  <img src="https://raw.githubusercontent.com/Whuanderson/GamerStore/refs/heads/main/.github/a2.png" width="410" alt="Catálogo" />
+  <img src="https://raw.githubusercontent.com/Whuanderson/GamerStore/refs/heads/main/.github/a3.png" width="410" alt="Carrinho" />
+
+---
+
+## 🗂️ Estrutura
+
+```
+.
+├─ apps
+│  ├─ backend    # API NestJS + Prisma
+│  ├─ frontend   # Web Next.js
+│  └─ mobile     # React Native (Expo)
+├─ packages
+│  ├─ ui         # biblioteca de componentes
+│  ├─ config     # ESLint, TSConfig, etc.
+│  └─ hooks      # hooks compartilhados
+└─ turbo.json    # pipeline Turborepo
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ✨ Funcionalidades
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Catálogo** de jogos com categorias, busca e filtros  
+- **Carrinho** e cálculo de frete/impostos  
+- **Checkout** com Stripe  
+- **Autenticação** JWT + refresh token  
+- **Painel admin** para produtos e pedidos  
+- **Sincronização** em tempo real via WebSocket  
+- **Design system** compartilhado entre web & mobile  
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Tecnologias
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Camada   | Stack |
+|----------|-------|
+| **Backend** | NestJS · Prisma ORM · PostgreSQL · Zod · Swagger |
+| **Frontend** | Next.js 14 · React 18 · TypeScript · TailwindCSS · TanStack Query |
+| **Mobile** | React Native (Expo) · TypeScript · NativeWind · Zustand |
+| **Infra** | Turborepo · Docker Compose · Husky & lint‑staged |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 💻 Executando localmente
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+> Requer **Node.js 18+** e **Yarn** (workspaces) ou **pnpm**.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+git clone https://github.com/Whuanderson/GamerStore
+cd GamerStore
+
+# instalar dependências de todos os workspaces
+yarn             # ou pnpm install
+```
+
+### Iniciar com Turborepo
+
+```bash
+yarn turbo run dev   # inicia backend, web e mobile em paralelo
+```
+
+### Iniciar manualmente
+
+```bash
+# API
+cd apps/backend
+yarn dev            # http://localhost:3333
+
+# Web
+cd ../../apps/frontend
+yarn dev            # http://localhost:3000
+
+# Mobile
+cd ../../apps/mobile
+npx expo start
+```
+
+> Configure variáveis de ambiente em `apps/*/.env.example` antes de iniciar.
+
+---
+
+## 📝 Licença
+
+Distribuído sob **MIT**. Veja [LICENSE](./LICENSE) para detalhes.
+
+<p align="center">
+  Feito por <a href="https://github.com/Whuanderson">Whuanderson Marinho</a> — deixe uma ⭐️ se este projeto te ajudou!
+</p>
